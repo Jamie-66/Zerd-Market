@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>商品详情</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/list_detail.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/TouchSlide1.1/TouchSlide.1.1.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/common/common.js"></script>
+	<script type="text/javascript" src="dist/js/list_detail.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<!--头部-->
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>
+				<a href="javascript:void(0)" class="active item-tag">详情</a>
+				<a href="javascript:void(0)" class="item-tag">评论</a>
+			</div>
+			<a href="javascript:void(0)"><i class="fa fa-list-ul" click="navlist"></i></a>
+		</div>
+	</div>
+	<!--主体内容-->
+	<div id="wrapper" class="main-body">
+		<div id="scroller">
+			<!--商品详情-->
+			<div class="pro-detail item">
+				<!--轮播-->
+				<div id="focus" class="focus">
+					<div class="hd">
+						<ul></ul>
+					</div>
+					<div class="bd">
+						<ul>
+							<li><a href="#"><img src="dist/images/73.jpg" bind="slide_Img"/></a></li>
+							<li><a href="#"><img src="dist/images/74.jpg" bind="slide_Img"/></a></li>
+							<li><a href="#"><img src="dist/images/75.jpg" bind="slide_Img"/></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="category1">
+					<div class="item-title" ng-bind="pro_item.title"></div>
+					<div class="item-price"><span>￥{{pro_item.price}}</span></div>
+				</div>
+				<div class="category2">
+					<p><span>品牌名称：</span>LETDIOSTO</p>
+					<p><span>商品名称：</span>咖啡_韩版大容量拉链双肩背包</p>
+					<p><span>产地：</span>中国</p>
+					<p><span>材质：</span>上衣:粘纤77%    聚酯纤维18.5%    氨纶4.5%     裤子:聚酯纤维100%   (装饰物除外)</p>
+					<p><span>洗涤说明：</span>最高洗涤温度40℃ 不可漂白 平摊晾干 熨斗底板最高温度110℃ 常规干洗（深色或者深色与浅色相拼的衣服洗涤时请注意：不宜用碱性过强的洗涤液；不宜浸泡时间过久）</p>
+				</div>
+				<div class="category3">
+					<ul>
+						<li><img src="dist/images/2751489825_1343298723.jpg"></li>
+						<li><img src="dist/images/2750837462_1343298723.jpg"></li>
+						<li><img src="dist/images/2748778687_1343298723.jpg"></li>
+						<li><img src="dist/images/2748775762_1343298723.jpg"></li>
+						<li><img src="dist/images/2751492519_1343298723.jpg"></li>
+						<li><img src="dist/images/2751498033_1343298723.jpg"></li>
+						<li><img src="dist/images/2750834724_1343298723.jpg"></li>
+						<li><img src="dist/images/2750828832_1343298723.jpg"></li>
+						<li><img src="dist/images/2748775625_1343298723.jpg"></li>
+						<li><img src="dist/images/2751489734_1343298723.jpg"></li>
+						<li><img src="dist/images/2748784054_1343298723.jpg"></li>
+						<li><img src="dist/images/2751495428_1343298723.jpg"></li>
+						<li><img src="dist/images/2751486950_1343298723.jpg"></li>
+						<li><img src="dist/images/2750831771_1343298723.jpg"></li>
+						<li><img src="dist/images/2748781606_1343298723.jpg"></li>
+						<li><img src="dist/images/2750840246_1343298723.jpg"></li>
+						<li><img src="dist/images/2751492576_1343298723.jpg"></li>
+					</ul>
+				</div>
+			</div>
+			<!--商品评价-->
+			<div class="pro-comment item item-hidden">
+				<div class="comment-group" ng-repeat="n in contents">
+					<ul>
+						<li>
+							<span><img ng-src="{{url + n.user_logo}}" bind="user_logo" ></span>
+							<span bind="user_name" ng-bind="n.user_name"></span>
+						</li>
+						<li bind="user_res_time" ng-bind="n.user_res_time"></li>
+					</ul>
+					<ul>
+						<li bind="starsCount">
+							<i class="fa fa-star" ng-repeat="p in [] | range : n.starsCount"></i>
+						</li>
+						<li bind="cont_detail" ng-bind="n.cont_detail"></li>
+						<li>
+						购买日期：
+						<span bind="user_buy" ng-bind="n.user_buy"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--加入购物车-->
+	<div class="shop_controll">
+		<div class="disable minus" ng-click="minusClick()"><i class="fa fa-minus"></i></div>
+		<div class="count" ng-bind="count"></div>
+		<span class="miss" ng-click="missClick()">取消</span>
+		<span class="sure" ng-click="sureClick()">确定</span>
+		<div class="plus" ng-click="plusClick()"><i class="fa fa-plus"></i></div>
+	</div>
+	<!--尾部-->
+	<div class="cart-bar">
+		<a href="cart.html">
+			<i class="fa fa-shopping-cart"><span ng-bind="num"></span></i>
+		</a>
+		<a href="javascript:void(0)" class="addCart" ng-click="addToCart()">
+			加入购物车
+		</a>
+		<a href="" ng-click="addToOrders()">
+			立即购买
+		</a>
+	</div>
+	<!--导航列表-->
+	<div class="navlist item-hidden">
+		<ul>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="cube.html">分类查询</a></li>
+			<li><a href="cart.html">购物车</a></li>
+			<li><a href="user.html">会员中心</a></li>
+		</ul>
+	</div>
+	<!--遮罩层-->
+	<div class="mask item-hidden">
+		<div>
+			<i class="fa fa-spinner fa-pulse"></i>
+			<p>加载中</p>
+		</div>
+	</div>
+</body>
+</html>

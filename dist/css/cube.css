@@ -1,0 +1,96 @@
+.cube-left>div.active{ color: #8E488E;background-color: #F8F8FF;}
+
+.content{
+	width: 100%;
+	overflow: hidden;
+	padding-left: 102px;
+}
+.cube-left{
+	/* height: 553px; */
+	/* position: absolute; */
+	position: fixed;
+	top: 48px;
+	/* bottom: 54px; */
+	left: 0;
+	width: 100px;
+	/* overflow-y: auto; */
+	margin-left: 2px;
+}
+.cube-left>div{
+	width: 100%;
+	height: 42px;
+	line-height: 42px;
+	background-color: #fff;
+	text-align: center;
+	margin-bottom: 1px;
+}
+.cube-left>div>a{
+	display: block;
+	color: #222;
+	text-decoration: none;
+	background-color: #fff;
+}
+.cube-left>div>a:hover{
+	background-color: #f5f5f5;
+}
+.cube-right{
+	/* position: absolute;
+	top: 48px;
+	bottom: 54px;
+	left: 100px;
+	right: 0;
+	overflow-y: auto; */
+	width: 100%;
+}
+.cube-right>div{
+	width: 100%;
+	padding: 0 6px;
+}
+.cube-right>div>div.cube-name{
+	width: 100%;
+	height: 27px;
+	line-height: 27px;
+	margin-top: 9px;
+}
+.cube-right>div>div.cube-content{
+	width: 100%;
+	/* background-color: #fff; */
+	display: -webkit-flex;
+	flex-flow: wrap;
+}
+.cube-right>div>div.cube-content>a{
+	display: block;
+	height: 150px;
+	color: #000;
+	float: left;
+	width: 47%;
+	background: #fff;
+	padding: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	border-radius: 3px;
+}
+.cube-right>div>div.cube-content>a>img{
+	width: 100%;
+	height: 113px;
+}
+.cube-right>div>div.cube-content>a>div{
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.kk{
+	position: fixed;
+	top: 100px;
+
+}
+.main-body{
+	position: relative;
+}
+#scroller{
+	margin-bottom: 54px;
+}

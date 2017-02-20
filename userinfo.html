@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>完善我的资料</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/userinfo.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/common/common.js"></script>
+	<script type="text/javascript" src="dist/js/userinfo.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<!--头部-->
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>完善我的资料</div>
+			<a href="javascript:void(0)"><i class="fa fa-list-ul" click="navlist"></i></a>
+		</div>
+	</div>
+	<!--主体内容-->
+	<div id="wrapper" class="main-body userinfo">
+		<div id="scroller">
+			<form>
+				<div class="form-item">
+					<span class="form-title">昵称</span>
+					<input type="text" class="required form-inp" ng-model="nickname">
+				</div>
+				<div class="form-item">
+					<span class="form-title">手机号码</span>
+					<input type="text" class="required form-inp" ng-model="phonenum" maxlength="11">
+				</div>
+				<div class="form-item">
+					<span class="form-title">收货地址</span>
+					<select id="provine" ng-model="provine" placeholder="d">
+						<option>选择省</option>
+						<option>广东省</option>
+						<option>湖南省</option>
+					</select>
+					<select id="city" ng-model="city">
+						<option>选择市</option>
+						<option>广州市</option>
+						<option>韶关市</option>
+					</select>
+					<select id="area" ng-model="area">
+						<option>选择区/县</option>
+						<option>萝岗区</option>
+						<option>天河区</option>
+						<option>越秀区</option>
+					</select>
+					<textarea placeholder="详细地址" ng-model="address"></textarea>
+				</div>
+				<input type="button" value="提交" class="Btn" ng-click="submit()">
+			</form>
+		</div>
+	</div>
+	<!--尾部-->
+	<div class="wrap-footer">
+		<a href="index.html" class="nav-btn">
+			<i class="fa fa-home"></i>
+			<span>首页</span>
+		</a>
+		<a href="database.html" class="nav-btn">
+			<i class="fa fa-database"></i>
+			<span>积分区</span>
+		</a>
+		<a href="cube.html" class="nav-btn">
+			<i class="fa fa-cube"></i>
+			<span>分类</span>
+		</a>
+		<a href="cart.html" class="nav-btn">
+			<i class="fa fa-shopping-cart"></i>
+			<span>购物车</span>
+		</a>
+		<a href="user.html" class="nav-btn active">
+			<i class="fa fa-user-o"></i>
+			<span>个人中心</span>
+		</a>
+	</div>
+	<!--导航列表-->
+	<div class="navlist item-hidden">
+		<ul>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="cube.html">分类查询</a></li>
+			<li><a href="cart.html">购物车</a></li>
+			<li><a href="user.html">会员中心</a></li>
+		</ul>
+	</div>
+	<!--遮罩层-->
+	<div class="mask item-hidden">
+		<div>
+			<i class="fa fa-spinner fa-pulse"></i>
+			<p>加载中</p>
+		</div>
+	</div>
+</body>
+</html>

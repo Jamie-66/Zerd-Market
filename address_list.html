@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>管理收货地址</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/address_list.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/vue.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/common/common.js"></script>
+	<script type="text/javascript" src="dist/js/address_list.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<!--头部-->
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>管理收货地址</div>
+		</div>
+	</div>
+	<!--主体内容-->
+	<div id="wrapper" class="main-body">
+		<div id="scroller" when-scrolled="loadMore()">
+	        <div class="address" ng-repeat="item in address">
+	            <div>
+	            	<a ng-click="modify()" href="">
+		            	<div>
+		            		<span ng-bind="item.account"></span><span ng-bind="item.phone"></span>
+		            	</div>
+		            	<div>
+		            		<span ng-bind="item.address"></span>
+		            	</div>
+	            	</a> 
+	            </div>
+	            <div>
+	            	<div>
+	            		<label ng-click="setDefault($event)"><input type="checkbox" items="{{item.address_id}}"><span>{{item.defaultstate == 'true'? '默认地址':'设为默认'}}</span></label>
+	            	</div>
+	            	<div>
+	            		<a href="" ng-click="modify()">
+	            			<i class="fa fa-file-text-o"></i>
+	            			<span>编辑</span>
+	            		</a>
+	            		<a href="">
+	            			<i class="fa fa-trash-o"></i>
+	            			<span ng-click="del($event)" items="{{item.address_id}}">删除</span>
+	            		</a>
+	            	</div>
+	            </div>
+	        </div>
+        </div> 
+    </div> 
+    <div class="wrap-footer">
+        <a href="" class="newaddress" ng-click="newaddress()">
+            <i class="fa fa-plus-square-o"></i>添加收货地址
+        </a> 
+    </div>
+    <div class="modify userinfo">
+    	<form>
+			<div class="form-item">
+				<span class="form-title">收件人</span>
+				<input type="text" class="required form-inp" ng-model="nickname">
+			</div>
+			<div class="form-item">
+				<span class="form-title">手机号码</span>
+				<input type="text" class="required form-inp" ng-model="phonenum" maxlength="11">
+			</div>
+			<div class="form-item">
+				<span class="form-title">送货地址</span>
+				<select id="provine" ng-model="provine" placeholder="d">
+					<option>选择省</option>
+					<option>广东省</option>
+					<option>湖南省</option>
+				</select>
+				<select id="city" ng-model="city">
+					<option>选择市</option>
+					<option>广州市</option>
+					<option>韶关市</option>
+				</select>
+				<select id="area" ng-model="area">
+					<option>选择区/县</option>
+					<option>萝岗区</option>
+					<option>天河区</option>
+					<option>越秀区</option>
+				</select>
+				<textarea placeholder="详细地址" ng-model="address"></textarea>
+			</div>
+			<input type="button" value="提交" class="Btn" ng-click="submit()">
+		</form>
+    </div>
+	<!--遮罩层-->
+	<div class="mask item-hidden">
+		<div>
+			<i class="fa fa-spinner fa-pulse"></i>
+			<p>加载中</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.main-body{
+	background: #fff;
+	position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 54px;
+    overflow: hidden;
+}
+.database{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 14px;
+}

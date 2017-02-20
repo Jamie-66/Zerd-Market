@@ -1,0 +1,186 @@
+body{
+	background-color: none;
+	background: url('../images/61.jpg') no-repeat;
+	background-size: 100% 100%;
+}
+.main-body{
+	bottom: 0;
+	/* background: rgba(255,255,255,0.1); */
+	overflow: auto;
+}
+.search-bar{
+	background: none;
+}
+.search-bar>div{
+	opacity: .8;
+}
+.wrap-header{
+	background: rgba(255,255,255,0.2);
+}
+#scroller{
+	position: fixed;
+	/* top: 18%; */
+	top: 48px;
+	bottom: 0;
+	margin-bottom: 0;
+	overflow: auto;
+	padding-bottom: 50px;
+}
+#scroller>div{
+	margin: 0 auto;
+	width: 70%;
+	
+}
+/* #scroller img{
+	display: block;
+	width: 170px;
+	height: 170px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+} */
+#scroller>.form-group{
+	margin-top: 10px;
+}
+#scroller>.group1{
+	margin-top: 20px;
+}
+.code{
+	float: left;
+	width: 100%;
+}
+.code>div{
+	width: 100px;
+	float: right;
+}
+#scroller>.register{
+	margin-top: 20px;
+	text-align: center;
+	font-family: inherit;
+}
+#scroller>.register>button{
+	padding: 8px 10px;
+	width: 55%;
+	border-radius: 20px;
+	background: #03A89E;
+	border: 0;
+	color: #fff;
+	font-size: 14px;
+}
+.input-group-addon{
+	background: #fff;
+	border: 0;
+}
+.input-group-addon>i.fa-user-o{
+	padding: 0 2px 0 2px;
+}
+.input-group-addon>i.fa-mobile-phone{
+	padding: 0 5px 0 5px;
+	font-size: 22px;
+}
+.form-control{
+	border: 0;
+	font-size: 14px;
+}
+.input1{
+	width: 100%;
+}
+.addon1{
+	background: #03A89E;
+	margin-left: 5px;
+}
+.input-group .addon2{
+	padding: 6px 14px;
+}
+.input-group .control1{
+	width: 95%;
+	border-radius: 10px;
+}
+.input-group .addon1{
+	width: 45%;
+	border: 0;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+.input-group-addon>i{
+	font-size: 18px;
+}
+.tips{
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.msg{
+ 	color: #fff;
+ 	font-size: 14px;
+}
+.tips>div{
+	width: 150px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	margin-left: -150px;
+	transition: left .1s ease;
+}
+
+#scroller .demo{
+	width:360px; 
+	margin:31px auto 10px auto;
+	text-align: center;
+}
+.demo button,
+.demo a.btn {
+    background-color: #189094;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: none;
+}
+.demo>div>button:first-child{
+	border-radius: 100%;
+	background: url('../images/logo.jpg') no-repeat center center;
+	width: 170px;
+	height: 170px;
+	background-size: 170px 170px;
+}
+.demo button:focus {
+    outline: 0;
+}
+.file-btn {
+    position: relative;
+}
+.actions input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.actions {
+    padding: 5px 0;
+}
+.actions button {
+    margin-right: 5px;
+    margin-top: 10px;
+}
+.crop{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	right: 0;
+	background: #ccc;
+	z-index: 1000;
+	padding-top: 50px;
+	bottom: 0;
+	transition: left .2s ease-in;
+}

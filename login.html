@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>登录</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/login.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/js/login.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>登录</div>
+		</div>
+	</div>
+	<div id="wrapper" class="main-body">
+		<div id="scroller">
+			<!-- <img src="dist/images/login-green-md.png"> -->
+			<div class="form-group group1">
+			    <div class="input-group">
+			      	<div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+			      	<input ng-model="name" class="form-control" type="text" placeholder="登录名 | 手机号 | 邮箱">
+			    </div>
+			</div>
+			<div class="form-group group2">
+			    <div class="input-group">
+			      	<div class="input-group-addon" style="width: 44px;"><i class='fa fa-lock'></i></div>
+			      	<input ng-model="password" class="form-control" type="password" style="width: 198px;" placeholder="密码">
+			    </div>
+			</div>
+			<div class="login">
+				<button ng-click="submit()" type="button" class="btn btn-default btn-lg">Login in</button>
+			</div>
+			<div class="signup">
+				<a href="">Forget Password</a>
+				<a href="">Sign Up</a>
+			</div>
+		</div>
+		<div class="tips"><div class="msg"></div></div>
+	</div>
+</body>
+</html>

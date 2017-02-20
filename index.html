@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>Zerd商城</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/index.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/TouchSlide1.1/TouchSlide.1.1.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/common/common.js"></script>
+	<script type="text/javascript" src="dist/js/index.js"></script>
+	
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<!--头部-->
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"></a>
+			<div>Zerd商城</div>
+			<a href="javascript:void(0)" ng-click="gethistory()"><i class="fa fa-search" click="search-content"></i></a>
+		</div>
+	</div>
+	<!--搜索框-->
+	<div class="search-content">
+		<div class="search-bar">
+			<div>搜索</div>
+			<a href="javascript:void(0)" ng-click="close()"><i class="fa fa-close" click="search-content"></i></a>
+		</div>
+		<div class="search-inp">
+			<span class="inp-add search-id"><i class="fa fa-search" click="search-key"></i></span>
+			<input type="text" class="inp-control" placeholder="斯文印花黑灰色短袖连衣裙" ng-model="keyWord">
+			<span class="inp-add search" ng-click="Search()"><a href="">搜索</a></span>
+		</div>
+		<div class="search-key item-hidden">
+			<ul>
+				<li state="1"><i class="fa fa-simplybuilt"></i>店铺</li>
+				<li state="2"><i class="fa fa-shopping-bag"></i>宝贝</li>
+				<li state="3"><i class="fa fa-key"></i>宝贝id</li>
+			</ul>
+		</div>
+		<div class="search-history">
+			<span class="history-title">历史搜索</span>
+			<ul>
+				<li ng-repeat="n in History track by $index">
+					<a href="" ng-click="searchAgain(n.keyword, n.state)"><span ng-bind="n.keyword"></span></a>
+					<div>
+						<a href=""><span>店铺</span></a>
+						<a href=""><span>印花</span></a>
+						<a href=""><span>服</span></a>
+					</div>
+				</li>
+			</ul>
+			<div class="clean-history" ng-click="cleanHistory()">
+				<a href="">清空搜索历史</a>
+			</div>
+		</div>
+	</div>	
+	<!--主体内容-->
+	<div id="wrappers" class="main-body">
+		<div id="scrollers" when-scrolled="loadMore()">
+			<!--轮播-->
+			<div id="focus" class="focus">
+				<div class="hd">
+					<ul></ul>
+				</div>
+				<div class="bd">
+					<ul>
+						<li><a href="#"><img src="dist/images/1.jpg"/></a></li>
+						<li><a href="#"><img src="dist/images/2.jpg"/></a></li>
+						<li><a href="#"><img src="dist/images/3.jpg"/></a></li>
+					</ul>
+				</div>
+			</div>
+			<!--导航-->
+			<img src="dist/images/ad_5.png" class="item-img imgheight-33">
+			<div id="wrapper" onload="loaded()">
+				<div id="scroller">
+					<ul>
+						<li><a href=""><img src="dist/images/nav_1.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_2.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_3.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_4.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_5.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_6.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_7.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_8.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_9.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_10.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_11.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_12.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_13.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_14.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_15.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_16.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_17.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_18.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_19.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_20.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_21.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_22.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_23.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_24.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_25.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_26.png"></a></li>
+						<li><a href=""><img src="dist/images/nav_27.jpg"></a></li>
+						<li><a href=""><img src="dist/images/nav_28.jpg"></a></li>
+						<li><a href=""><img src="dist/images/allbrand.png"></a></li>
+					</ul>
+				</div>
+			</div>
+			<img src="dist/images/26.jpg" class="item-img">
+			<a href="list.html"><img src="dist/images/31.jpg" class="item-img"></a>
+			<div class="category1">
+	            <div class="list-img"><a href="list.html"><img src="dist/images/27.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/28.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/29.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/30.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/32.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/33.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/34.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/35.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/36.jpg" class="item-img"></a></div>
+	            <div class="list-img"><a href="list.html"><img src="dist/images/37.jpg" class="item-img"></a></div>
+	        </div>
+
+	        <a href="list.html"><img src="dist/images/50.jpg" class="item-img"></a>
+	        <a href="list.html"><img src="dist/images/51.jpg" class="item-img"></a>
+	        <a href="list.html"><img src="dist/images/52.jpg" class="item-img"></a>
+	        <a href="list.html"><img src="dist/images/53.jpg" class="item-img"></a>
+	        <img src="dist/images/26.jpg" class="item-img">
+	        <div class="productlist">
+		        <div ng-repeat="p in Source">
+		        	<div class="item-img"><a href="list_detail.html?id={{p[0].id}}"><img ng-src="{{url + p[0].pro_img}}" class="item-img"></a></div>
+		        	<div class="item-title" ng-bind="p[0].title"></div>
+		        	<div class="item-price"><span>{{"￥"+p[0].price}}</span></div>
+		        </div>
+	        </div>
+		</div>
+	</div>	
+	<!--回到顶部-->
+	<div class="scroll_top item-hidden" ng-click="backToTop()"><i class="fa fa-arrow-up"></i></div>
+	<!--尾部-->
+	<div class="wrap-footer">
+		<a href="index.html" class="nav-btn active">
+			<i class="fa fa-home"></i>
+			<span>首页</span>
+		</a>
+		<a href="database.html" class="nav-btn">
+			<i class="fa fa-database"></i>
+			<span>积分区</span>
+		</a>
+		<a href="cube.html" class="nav-btn">
+			<i class="fa fa-cube"></i>
+			<span>分类</span>
+		</a>
+		<a href="cart.html" class="nav-btn">
+			<i class="fa fa-shopping-cart"></i>
+			<span>购物车</span>
+		</a>
+		<a href="user.html" class="nav-btn">
+			<i class="fa fa-user-o"></i>
+			<span>个人中心</span>
+		</a>
+	</div>
+	<!--遮罩层-->
+	<div class="mask item-hidden">
+		<div>
+			<i class="fa fa-spinner fa-pulse"></i>
+			<p>加载中</p>
+		</div>
+	</div>
+</body>
+</html>

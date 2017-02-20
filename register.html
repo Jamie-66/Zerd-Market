@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>注册</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="libs/croppie/croppie.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/register.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="libs/croppie/croppie.min.js"></script>
+	<script type="text/javascript" src="dist/common/randomNum.js"></script>
+	<script type="text/javascript" src="dist/js/register.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>注册</div>
+			<a href="javascript:void(0)" ng-click="close()"><i class="fa fa-times closed"></i></a>
+		</div>
+	</div>
+	<div id="wrapper" class="main-body">
+		<div id="scroller">
+			<div class="demo">
+				<div class="actions">
+		            <button class="file-btn" ng-click="upload()">
+		                <input type="file" id="upload" value="选择图片文件" capture="camera"/>
+		            </button>
+		            <div class="crop">
+						<div id="upload-demo"></div>
+						<button class="upload-result" ng-click="close()">裁剪</button>
+					</div>
+					<div id="result"></div>
+		        </div>
+			</div>
+			<div class="form-group group1">
+			    <div class="input-group">
+			      	<div class="input-group-addon"><i class="fa fa-user-o"></i></div>
+			      	<input ng-model="account" class="form-control account" type="text" placeholder="用户名">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="input-group">
+			      	<div class="input-group-addon"><i class="fa fa-mobile-phone"></i></div>
+			      	<input ng-model="phone" class="form-control" type="tel" placeholder="手机号" maxlength="11">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="input-group">
+			      	<div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+			      	<input ng-model="email" class="form-control" type="email" placeholder="验证邮箱">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="input-group input1">
+			    	<input ng-model="code" class="form-control control1" type="text">
+			      	<div class="input-group-addon addon1" ng-click="codeClick()"><span>获取验证码</span></div>
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="input-group">
+			      	<div class="input-group-addon addon2"><i class="fa fa-lock"></i></div>
+			      	<input ng-model="password" class="form-control psw1" type="password" placeholder="密码不少于12位">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <div class="input-group">
+			      	<div class="input-group-addon addon2"><i class="fa fa-lock"></i></div>
+			      	<input ng-model="repassword" class="form-control psw2" type="password" placeholder="再次确认密码">
+			    </div>
+			</div>
+			<div class="register">
+				<button type="button" ng-click="submit()" class="btn btn-default btn-lg">注册</button>
+			</div>
+		</div>
+		<div class="tips"><div class="msg">注册成功</div></div>
+	</div>
+</body>
+</html>

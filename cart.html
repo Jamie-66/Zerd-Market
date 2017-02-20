@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>购物车</title>
+
+	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
+	<link rel="stylesheet" type="text/css" href="dist/common/common.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/cart.css">
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
+	<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular/common.js"></script>
+	<script type="text/javascript" src="dist/common/common.js"></script>
+	<script type="text/javascript" src="dist/js/cart.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="Controller">
+	<!--头部-->
+	<div class="wrap-header">
+		<div class="search-bar">
+			<a href="javascript:window.history.go(-1)"><i class="fa fa-angle-left"></i></a>
+			<div>购物车</div>
+			<a href="javascript:void(0)"><i class="fa fa-list-ul" click="navlist"></i></a>
+		</div>
+	</div>
+	<!--主体内容-->
+	<div id="wrapper" class="main-body">
+		<div id="scroller" when-scrolled="loadMore()">
+			<div class="shopcart-list">
+				<div class="pro-group idbox" ng-repeat="item in cartList">
+					<div class="item-option">
+						<i class="fa fa-circle-o select" items="{{item.indexid}}" check="true" one-check></i>
+					</div>
+					<div class="item-img">
+						<a href="list_detail.html?id={{item.id}}"><img ng-src="{{url + item.item_img}}"></a>
+					</div>
+					<div class="item-content">
+						<div class="item-title" ng-bind="item.title"></div>
+						<div class="item-control">
+							<div class="item-price">￥{{item.price}}</div>
+							<div class="item-trash del" ng-click="delClick(item,$event)" del-click items="{{item.indexid}}"><i class="fa fa-trash-o"></i></div>
+							<div class="item-clac">
+								<div class="{{item.count >1 ? '':'disable'}} minus" my-minus items="{{item.indexid}}"><i class="fa fa-minus"></i></div>
+								<div class="count" ng-bind="item.count"></div>
+								<div class="plus" my-adds items="{{item.indexid}}"><i class="fa fa-plus"></i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--尾部-->
+	<div class="cart-bar">
+		<div class="allselect" all-orcan>
+			<i class="fa fa-circle-o select" check="true"></i>
+			<span>全选</span>
+		</div>
+		<div>
+			<span ng-click="payClick($event)" class="payforway">支付方式</span>
+			<i class="fa fa-chevron-right"></i>
+		</div>
+		<div>
+			<a href="javascript:void(0)" class="total" ng-click="addToOrder()">确认并支付(￥{{allPrices()}})</a>
+		</div>
+	</div>
+	<!--支付方式遮罩层-->
+	<div class="pay-mask item-hidden"></div>
+	<!--支付方式-->
+	<div class="payfor item-hidden">
+		<div class="pay-item">余额支付</div>
+		<div class="pay-item">微信支付</div>
+	</div>
+	<!--导航列表-->
+	<div class="navlist item-hidden">
+		<ul>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="cube.html">分类查询</a></li>
+			<li><a href="cart.html">购物车</a></li>
+			<li><a href="user.html">会员中心</a></li>
+		</ul>
+	</div>
+	<!--遮罩层-->
+	<div class="mask item-hidden">
+		<div>
+			<i class="fa fa-spinner fa-pulse"></i>
+			<p>加载中</p>
+		</div>
+	</div>
+</body>
+</html>
